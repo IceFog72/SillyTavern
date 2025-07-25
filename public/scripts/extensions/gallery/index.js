@@ -591,7 +591,7 @@ function makeDragImg(id, url) {
     const imgElem = document.createElement('img');
     imgElem.src = url;
     let uniqueId = `draggable_${id}`;
-    const draggableElem = /** @type {HTMLElement} */ (newElement.querySelector('.draggable'));
+    const draggableElem = /** @type {HTMLElement} */ (newElement.querySelector('.draggable .galleryImageDraggable'));
     if (draggableElem) {
         draggableElem.appendChild(imgElem);
 
@@ -603,7 +603,9 @@ function makeDragImg(id, url) {
             counter++;
         }
         draggableElem.id = uniqueId;
-
+        // Add the galleryImageDraggable to have unique class
+        draggableElem.classList.add('galleryImageDraggable');
+        
         // Ensure that the newly added element is displayed as block
         draggableElem.style.display = 'block';
         //and has no padding unlike other non-zoomed-avatar draggables
